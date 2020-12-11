@@ -34,8 +34,10 @@
           <!-- header-right -->
           <div id="header-right">
             <div class="user-open">
-              <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png" alt="user-photo">
-              <div class="">
+              <div class="user-image">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png" alt="user-photo">
+              </div>
+              <div class="user-data">
                 <h4>Michele</h4>
                 <p>Ultimo accesso</p>
               </div>
@@ -59,9 +61,24 @@
               <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
             </div>
             <div id="app">
-              <h2>{{ message }}</h2>
-
+              <div v-for="value in contacts" class="user-main-nav">
+                <div class="user-info">
+                  <div class="user-image">
+                    <img :src="value.avatar" alt="">
+                  </div>
+                  <div class="user-data">
+                    <h4>{{ value.name }}</h4>
+                    <p>messaggio</p>
+                  </div>
+                </div>
+                <div class="data-message">
+                  <p>10/01/2020 16.30.30</p>
+                </div>
+              </div>
             </div>
+
+          </section>
+          <section id="messages-container">
 
           </section>
         </main>

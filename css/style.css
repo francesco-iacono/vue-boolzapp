@@ -6,9 +6,24 @@
   font-weight: 300;
   font-size: 14px;
 }
+/* utilitis */
 i {
   color: rgba(81, 81, 81, 0.4);
   padding: 3px;
+}
+img {
+  height: 75%;
+  margin-right: 5px;
+}
+/* user */
+.user-image {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.user-data p {
+  font-size: 10px;
+  color: rgba(81, 81, 81, 0.5);
 }
 :focus {
   outline: none;
@@ -17,7 +32,7 @@ i {
 .two-colour-background {
   position: relative;
   height: 100vh;
-  background-image: -webkit-linear-gradient(top, #109588 20%, #E8E6E0 10%);
+  background-image: -webkit-linear-gradient(top, #109588 90px, #E8E6E0 10%);
 }
 /* container-app */
 .container-app {
@@ -41,7 +56,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 380px;
+  width: 35%;
   height: 100%;
   padding: 0 15px;
   border-right: 1.5px solid rgba(81,81,81, 0.3);
@@ -54,29 +69,26 @@ header {
 .user-info h4 {
   font-weight: 400;
 }
-.user-info img, .user-open img {
-  height: 75%;
-  margin-right: 5px;
-  background-color: #D8D8D8;
-}
 /* /header-left */
 /* header-right */
 #header-right {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: calc(100% - 380px);
+  width: 65%;
   height: 100%;
   padding: 0 15px;
 }
 /* /header-right */
 /* main */
 main {
+  display: flex;
   width: 100%;
   height: calc(100% - 60px);
 }
+/* section main-nav */
 #main-nav {
-  width: 380px;
+  width: 35%;
   height: 100%;
 }
 .main-nav-notice {
@@ -104,5 +116,36 @@ main {
   border: 1px solid rgba(81, 81, 81, 0.4);
   border-left: 0px;
 }
+#app {
+  overflow-y: scroll;
+  height: calc(100% - 110px);
+}
+.user-main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(81, 81, 81, 0.2);
+}
+#app .user-main-nav:last-child {
+  border-bottom: 0;
+}
+.data-message {
+  align-self: flex-start;
+}
+.data-message p {
+  padding: 8px;
+  font-size: 10px;
+  color: rgba(81, 81, 81, 0.5);
+}
+/* /section main-nav */
+/* section messages-container */
+#messages-container {
+  width: 65%;
+  height: 100%;
+  background-color: red;
+}
+/* /section messages-container */
 
 /* /main */
