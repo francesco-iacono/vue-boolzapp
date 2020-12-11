@@ -8,8 +8,9 @@
 }
 /* utilitis */
 i {
-  color: rgba(81, 81, 81, 0.4);
   padding: 3px;
+  color: rgba(81, 81, 81, 0.4);
+  font-size: 16px;
 }
 img {
   height: 75%;
@@ -32,7 +33,7 @@ img {
 .two-colour-background {
   position: relative;
   height: 100vh;
-  background-image: -webkit-linear-gradient(top, #109588 90px, #E8E6E0 10%);
+  background-image: -webkit-linear-gradient(top, #109588 90px, #D7DBD7 10%);
 }
 /* container-app */
 .container-app {
@@ -107,6 +108,7 @@ main {
   width: 60px;
   background-color: #ffff;
   border: 1px solid rgba(81, 81, 81, 0.4);
+  border-radius: 4px 0 0 4px;
   border-right: 0px;
   cursor: pointer;
 }
@@ -114,6 +116,7 @@ main {
   width: calc(100% - 60px);
   height: 100%;
   border: 1px solid rgba(81, 81, 81, 0.4);
+  border-radius: 0 4px 4px 0;
   border-left: 0px;
 }
 #app {
@@ -144,8 +147,78 @@ main {
 #messages-container {
   width: 65%;
   height: 100%;
-  background-color: red;
 }
-/* /section messages-container */
+/* area messaggi */
+#area-messages {
+  width: 100%;
+  height: calc(100% - 60px);
+  padding: 30px 80px;
+  background-image: url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: contain;
+}
+.wrapper-clearfix {
+  content: "";
+   clear: both;
+   display: table;
+   width: 100%;
+}
+.send-message {
+  float: right;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100px;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #CFFABD;
+}
+.received-message {
+  float: left;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100px;
+  max-width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: #ffff;
+}
+.data-message-box {
+  position: relative;
+  width: 80px;
+}
+.data-message-box span {
+  position: absolute;
+  bottom: -8px;
+  right: -6px;
+  width: 80px;
+  font-size: 8px;
+  color: rgba(81, 81, 81, 0.5);
+}
 
+/* /area messaggi */
+/* zona input */
+.input-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: #F1EEE6;
+}
+.input-message i {
+  font-size: 20px;
+  color: gray;
+}
+.input-message input {
+  width: 70%;
+  height: 75%;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+/* /zona input */
+/* /section messages-container */
 /* /main */
