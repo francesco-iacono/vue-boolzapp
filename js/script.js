@@ -1,6 +1,7 @@
 var app = new Vue({
   el: '#app',
   data: {
+    contactsIndex: 0,
     contacts: [
     	{
     		name: 'Michele',
@@ -86,6 +87,10 @@ var app = new Vue({
     		],
     	},
     ]
-
-  }
+  },
+  methods: {
+      goToMessages: function (newIndex) {
+        this.contactsIndex = newIndex;
+      }
+    },
 })

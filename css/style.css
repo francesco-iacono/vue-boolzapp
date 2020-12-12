@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
 }
 /* utilitis */
@@ -12,9 +12,18 @@ i {
   color: rgba(81, 81, 81, 0.4);
   font-size: 16px;
 }
+i:hover {
+  color: rgba(81, 81, 81, 0.8);
+  transition-duration: 0.2s;
+}
 img {
   height: 75%;
   margin-right: 5px;
+}
+/* list */
+.inline-list li {
+  list-style-type: none;
+  display: inline-block;
 }
 /* user */
 .user-image {
@@ -23,6 +32,7 @@ img {
   height: 100%;
 }
 .user-data p {
+  padding-top: 5px;
   font-size: 10px;
   color: rgba(81, 81, 81, 0.5);
 }
@@ -67,8 +77,8 @@ header {
   align-items: center;
   height: 100%;
 }
-.user-info h4 {
-  font-weight: 400;
+#header-left .user-info h4 {
+  font-weight: bolder;
 }
 /* /header-left */
 /* header-right */
@@ -92,11 +102,32 @@ main {
   width: 35%;
   height: 100%;
 }
+/* notice */
 .main-nav-notice {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
   width: 100%;
   height: 70px;
   background-color: #8CD6F7;
 }
+.main-nav-notice i {
+  background-color: #ffff;
+  padding: 10px;
+  margin-right: 5px;
+  font-size: 18px;
+  border-radius: 50%;
+  color: #8CD6F7;
+}
+.main-nav-notice a {
+  color: rgba(81, 81, 81, 0.6);
+}
+.main-nav-notice a:hover {
+  color: rgba(81, 81, 81, 0.8);
+  transition-duration: 0.2s;
+}
+/* /notice */
+/* input main nav */
 .main-nav-input {
   display: flex;
   width: 100%;
@@ -119,10 +150,13 @@ main {
   border-radius: 0 4px 4px 0;
   border-left: 0px;
 }
-#app {
+/* /input main nav */
+/* main contacts */
+.main-contacts {
   overflow-y: scroll;
   height: calc(100% - 110px);
 }
+/* row contacts */
 .user-main-nav {
   display: flex;
   justify-content: space-between;
@@ -130,8 +164,20 @@ main {
   height: 60px;
   padding-left: 20px;
   border-bottom: 1px solid rgba(81, 81, 81, 0.2);
+  cursor: pointer;
 }
-#app .user-main-nav:last-child {
+.user-main-nav .user-info p {
+  white-space: nowrap;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* classe active!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.active {
+  background-color: rgba(81, 81, 81, 0.2);
+  border-bottom: 0;
+}
+.main-contacts .user-main-nav:last-child {
   border-bottom: 0;
 }
 .data-message {
@@ -142,6 +188,8 @@ main {
   font-size: 10px;
   color: rgba(81, 81, 81, 0.5);
 }
+/* /row contacts */
+/* /main contacts */
 /* /section main-nav */
 /* section messages-container */
 #messages-container {
@@ -157,6 +205,7 @@ main {
   background-repeat: repeat;
   background-position: center;
   background-size: contain;
+  overflow-y: scroll;
 }
 .wrapper-clearfix {
   content: "";
@@ -164,25 +213,21 @@ main {
    display: table;
    width: 100%;
 }
-.send-message {
-  float: right;
+.box-message {
   display: flex;
   justify-content: space-around;
   min-width: 100px;
   max-width: 300px;
   padding: 10px;
+  margin: 5px 0;
   border-radius: 10px;
+}
+.sent {
+  float: right;
   background-color: #CFFABD;
 }
-.received-message {
+.received {
   float: left;
-  display: flex;
-  justify-content: space-around;
-  min-width: 100px;
-  max-width: 300px;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
   background-color: #ffff;
 }
 .data-message-box {
@@ -212,12 +257,17 @@ main {
   font-size: 20px;
   color: gray;
 }
+.input-message i:hover {
+  color: black;
+  transition-duration: 0.2s;
+}
 .input-message input {
-  width: 70%;
+  width: 80%;
   height: 75%;
+  padding: 0 10px;
+  margin: 0 20px;
   border: none;
   border-radius: 5px;
-  margin: 0 10px;
 }
 /* /zona input */
 /* /section messages-container */
