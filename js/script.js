@@ -89,10 +89,13 @@ var app = new Vue({
     ],
     search: '',
     newText: '',
+    liveDate: new Date(),
+    autoReply: null
   },
   methods: {
       goToMessages: function (newIndex) {
         this.contactsIndex = newIndex;
+        console.log(this.liveDate);
       },
       sendNewMessage() {
         var newMessage = {
@@ -102,7 +105,7 @@ var app = new Vue({
         }
         this.contacts[this.contactsIndex].messages.push(newMessage);
         this.newText = '';
-        setTimeout(function(){
+        this.autoReply = setTimeout(() => {
           var autoReplyMessage = {
             date: '10/01/2020 15:30:55',
             text: 'ok',
@@ -111,16 +114,12 @@ var app = new Vue({
           this.contacts[this.contactsIndex].messages.push(autoReplyMessage);
         }, 1000);
       },
-
-      // searchContact() {
-      //   console.log(this.contactInput);
-      // }
     },
-    computed: {
-      filteredList() {
-        return this.contacts.filter(value => {
-          return value.name.toLowerCase().includes(this.search.toLowerCase())
-        })
-      }
+  computed: {
+    filteredList() {
+      return this.contacts.filter(value => {
+        return value.name.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
+  }
 })
