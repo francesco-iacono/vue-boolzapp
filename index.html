@@ -97,9 +97,9 @@
             <!-- input main nav -->
             <div class="main-nav-input">
               <button type="button" name="button">
-                <i class="fas fa-search"></i>
+                <i v-on:click="searchContact" class="fas fa-search"></i>
               </button>
-              <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+              <input type="text" name="" value="" v-model="contactInput" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- /input main nav -->
             <!-- main nav contacts -->
@@ -138,12 +138,10 @@
             <!-- area messages -->
             <div id="area-messages">
               <!-- row box message -->
-              <div v-for="(value, index) in contacts"
-              class="wrapper-clearfix">
+              <div class="wrapper clearfix">
               <!-- box message -->
-                <div v-for="item in value.messages"
-                v-if="index == contactsIndex"
-                class="wrapper-clearfix box-message"
+                <div v-for="item in contacts[contactsIndex].messages"
+                class="clearfix box-message"
                 :class="item.status">
                   <p>{{ item.text }}</p>
                   <div class="data-message-box">
@@ -160,7 +158,8 @@
               <a href="#">
                 <i class="far fa-smile"></i>
               </a>
-              <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+              <input type="text" name="" value="" v-model="newText" placeholder="Scrivi un messaggio"
+              v-on:keypress.enter="sendNewMessage">
               <a href="#">
                 <i class="fas fa-microphone"></i>
               </a>

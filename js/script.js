@@ -86,11 +86,26 @@ var app = new Vue({
     			}
     		],
     	},
-    ]
+    ],
+    contactInput: '',
+    newText: '',
+    autoReply: ''
   },
   methods: {
       goToMessages: function (newIndex) {
         this.contactsIndex = newIndex;
+      },
+      sendNewMessage() {
+        var newMessage = {
+          date: '10/01/2020 15:30:55',
+          text: this.newText,
+          status: 'sent'
+        }
+        this.contacts[this.contactsIndex].messages.push(newMessage);
+        this.newText = '';
+      },
+      searchContact() {
+        console.log(this.contactInput);
       }
     },
 })

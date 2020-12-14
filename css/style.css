@@ -207,16 +207,18 @@ main {
   background-size: contain;
   overflow-y: scroll;
 }
-.wrapper-clearfix {
+.wrapper {
+  width: 100%;
+}
+.clearfix {
   content: "";
    clear: both;
    display: table;
-   width: 100%;
 }
 .box-message {
   display: flex;
   justify-content: space-around;
-  min-width: 100px;
+  min-width: 190px;
   max-width: 300px;
   padding: 10px;
   margin: 5px 0;
