@@ -87,9 +87,8 @@ var app = new Vue({
     		],
     	},
     ],
-    contactInput: '',
+    search: '',
     newText: '',
-    autoReply: ''
   },
   methods: {
       goToMessages: function (newIndex) {
@@ -103,9 +102,25 @@ var app = new Vue({
         }
         this.contacts[this.contactsIndex].messages.push(newMessage);
         this.newText = '';
+        setTimeout(function(){
+          var autoReplyMessage = {
+            date: '10/01/2020 15:30:55',
+            text: 'ok',
+            status: 'received'
+          }
+          this.contacts[this.contactsIndex].messages.push(autoReplyMessage);
+        }, 1000);
       },
-      searchContact() {
-        console.log(this.contactInput);
-      }
+
+      // searchContact() {
+      //   console.log(this.contactInput);
+      // }
     },
+    computed: {
+      filteredList() {
+        return this.contacts.filter(value => {
+          return value.name.toLowerCase().includes(this.search.toLowerCase())
+        })
+      }
+    }
 })

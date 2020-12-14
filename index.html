@@ -97,15 +97,15 @@
             <!-- input main nav -->
             <div class="main-nav-input">
               <button type="button" name="button">
-                <i v-on:click="searchContact" class="fas fa-search"></i>
+                <i v-on:click="filteredList" class="fas fa-search"></i>
               </button>
-              <input type="text" name="" value="" v-model="contactInput" placeholder="Cerca o inizia una nuova chat">
+              <input type="text" name="" value="" v-model="search" placeholder="Cerca o inizia una nuova chat">
             </div>
             <!-- /input main nav -->
             <!-- main nav contacts -->
             <div class="main-contacts">
               <!-- row User -->
-              <div v-for="(value, index) in contacts"
+              <div v-for="(value, index) in filteredList"
               @click="goToMessages(index)"
               :class="(index == contactsIndex) ? 'active' : ''"
               class="user-main-nav">
