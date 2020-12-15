@@ -216,6 +216,7 @@ main {
    display: table;
 }
 .box-message {
+  position: relative;
   display: flex;
   justify-content: space-around;
   min-width: 190px;
@@ -223,6 +224,29 @@ main {
   padding: 10px;
   margin: 5px 0;
   border-radius: 10px;
+}
+.box-message-delete  {
+  position: absolute;
+  right: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+  background-color: #ffff;
+}
+.show {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.box-message-delete p {
+  padding: 5px;
+  cursor: pointer;
+  color: rgba(81, 81, 81, 0.5);
+}
+.box-message-delete p:hover {
+  color: rgba(81, 81, 81, 0.9);
 }
 .sent {
   float: right;

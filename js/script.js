@@ -1,12 +1,11 @@
 var app = new Vue({
   el: '#app',
   data: {
-    contactsIndex: 0,
     contacts: [
     	{
     		name: 'Michele',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png',
-    		// visible: true,
+    		visible: true,
     		messages: [
     			{
     				date: '10/01/2020 15:30:55',
@@ -28,7 +27,7 @@ var app = new Vue({
     	{
     		name: 'Fabio',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png',
-    		// visible: true,
+    		visible: true,
     		messages: [
     			{
     				date: '20/03/2020 16:30:00',
@@ -50,7 +49,7 @@ var app = new Vue({
     	{
     		name: 'Samuele',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png',
-    		// visible: true,
+    		visible: true,
     		messages: [
     			{
     				date: '28/03/2020 10:10:40',
@@ -72,7 +71,7 @@ var app = new Vue({
     	{
     		name: 'Luisa',
     		avatar: 'https://cdn.iconscout.com/icon/free/png-256/avatar-369-456321.png',
-    		// visible: true,
+    		visible: true,
     		messages: [
     			{
     				date: '10/01/2020 15:30:55',
@@ -87,19 +86,21 @@ var app = new Vue({
     		],
     	},
     ],
+    contactsIndex: 0,
     search: '',
     newText: '',
-    liveDate: new Date(),
-    autoReply: null
+    autoReply: null,
+    indexElementMessage: 0,
+    indexShowBox: - 1,
+    messageDelete: false
   },
   methods: {
       goToMessages: function (newIndex) {
         this.contactsIndex = newIndex;
-        console.log(this.liveDate);
       },
       sendNewMessage() {
         var newMessage = {
-          date: '10/01/2020 15:30:55',
+          date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
           text: this.newText,
           status: 'sent'
         }
@@ -107,13 +108,25 @@ var app = new Vue({
         this.newText = '';
         this.autoReply = setTimeout(() => {
           var autoReplyMessage = {
-            date: '10/01/2020 15:30:55',
+            date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
             text: 'ok',
             status: 'received'
           }
           this.contacts[this.contactsIndex].messages.push(autoReplyMessage);
         }, 1000);
       },
+      showBoxInfo: function (indexMessage) {
+        this.indexShowBox = indexMessage;
+       console.log(indexMessage);
+      },
+      mouseLeave: function () {
+        this.indexShowBox = - 1;
+      },
+      deleteElement: function (indexMessage) {
+        this.indexElementMessage = indexMessage;
+        this.contacts[this.contactsIndex].messages.splice(this.indexElementMessage, 1);
+        this.messageDelete = true
+      }
     },
   computed: {
     filteredList() {

@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- dayjs -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <title>Boolzapp</title>
   </head>
   <body>
@@ -97,7 +99,7 @@
             <!-- input main nav -->
             <div class="main-nav-input">
               <button type="button" name="button">
-                <i v-on:click="filteredList" class="fas fa-search"></i>
+                <i class="fas fa-search"></i>
               </button>
               <input type="text" name="" value="" v-model="search" placeholder="Cerca o inizia una nuova chat">
             </div>
@@ -136,17 +138,29 @@
           <!-- container messages -->
           <section id="messages-container">
             <!-- area messages -->
-            <div id="area-messages">
+            <div id="area-messages"
+            >
               <!-- row box message -->
               <div class="wrapper clearfix">
               <!-- box message -->
-                <div v-for="item in contacts[contactsIndex].messages"
+                <div v-for="(item, index) in contacts[contactsIndex].messages"
                 class="clearfix box-message"
-                :class="item.status">
-                  <p>{{ item.text }}</p>
+                :class="item.status"
+                @click="showBoxInfo(index)"
+                v-on:mouseleave="mouseLeave"
+                >
+                  <p> {{ item.text }}</p>
                   <div class="data-message-box">
                     <span>{{ item.date }}</span>
                   </div>
+                  <!-- cancella messaggio -->
+                  <div class="box-message-delete"
+                  :class="(index == indexShowBox) ? 'show' : 'hidden'"
+                  >
+                    <p>Message Info</p>
+                    <p @click="deleteElement(index)">Delete message</p>
+                  </div>
+                  <!-- cancella messaggio -->
                 </div>
                 <!-- /box message -->
               </div>
