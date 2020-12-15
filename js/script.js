@@ -126,7 +126,7 @@ var app = new Vue({
         this.indexElementMessage = indexMessage;
         this.contacts[this.contactsIndex].messages.splice(this.indexElementMessage, 1);
         this.messageDelete = true
-      }
+      },
     },
   computed: {
     filteredList() {

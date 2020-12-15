@@ -218,12 +218,56 @@ main {
 .box-message {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   min-width: 190px;
   max-width: 300px;
   padding: 10px;
   margin: 5px 0;
-  border-radius: 10px;
+  cursor: pointer;
+}
+.sent {
+  float: right;
+  background-color: #CFFABD;
+  border-radius: 10px 0 10px 10px;
+}
+.sent::after {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  content: '';
+  display: block;
+  width: 10px;
+	height: 11px;
+	transform: skew(-22deg);
+  background-color: #CFFABD;
+}
+.received {
+  float: left;
+  border-radius: 0 10px 10px 10px;
+  background-color: #ffff;
+}
+.received::after {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  content: '';
+  display: block;
+  width: 10px;
+	height: 11px;
+	transform: skew(22deg);
+  background-color: #ffff;
+}
+.data-message-box {
+  position: relative;
+  width: 80px;
+}
+.data-message-box span {
+  position: absolute;
+  bottom: -8px;
+  right: -6px;
+  width: 80px;
+  font-size: 8px;
+  color: rgba(81, 81, 81, 0.5);
 }
 .box-message-delete  {
   position: absolute;
@@ -248,27 +292,6 @@ main {
 .box-message-delete p:hover {
   color: rgba(81, 81, 81, 0.9);
 }
-.sent {
-  float: right;
-  background-color: #CFFABD;
-}
-.received {
-  float: left;
-  background-color: #ffff;
-}
-.data-message-box {
-  position: relative;
-  width: 80px;
-}
-.data-message-box span {
-  position: absolute;
-  bottom: -8px;
-  right: -6px;
-  width: 80px;
-  font-size: 8px;
-  color: rgba(81, 81, 81, 0.5);
-}
-
 /* /area messaggi */
 /* zona input */
 .input-message {
