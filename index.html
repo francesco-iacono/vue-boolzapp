@@ -49,7 +49,7 @@
           <!-- /header-left -->
           <!-- header-right -->
           <div id="header-right">
-            <div v-for="(value, index) in contacts"
+            <div v-for="(value, index) in filteredList"
             v-if="index == contactsIndex"
             class="user-open">
               <div class="user-image">
@@ -143,7 +143,7 @@
               <!-- row box message -->
               <div class="wrapper clearfix">
               <!-- box message -->
-                <div v-for="(item, index) in contacts[contactsIndex].messages"
+                <div v-for="(item, index) in filteredList[contactsIndex].messages"
                 class="clearfix box-message"
                 :class="item.status"
                 @click="showBoxInfo(index)"
